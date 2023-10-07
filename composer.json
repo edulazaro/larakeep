@@ -1,0 +1,27 @@
+{
+    "name": "edulazaro/larakeep",
+    "description": "Maintenance Tasks for Laravel Models Fields",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "EduLazaro\\Larakeep\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Edu Lazaro",
+            "email": "edu@edulazaro.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EduLazaro\\Larakeep\\LarakeepServiceProvider"
+            ]
+        }
+    }
+}

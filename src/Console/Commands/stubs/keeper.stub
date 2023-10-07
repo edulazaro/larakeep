@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Keepers;
+
+use {{model_class}};
+
+class {{keeper_class}}
+{
+    private {{used_model_class}} ${{model_class_variable_name}};
+
+     /**
+     * Keeper constructor.
+     *
+     * @return void
+     */
+    public function __construct({{used_model_class}} ${{model_class_variable_name}})
+    {
+        $this->{{model_class_variable_name}} = ${{model_class_variable_name}};
+    }
+}
