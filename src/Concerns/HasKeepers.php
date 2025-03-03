@@ -2,6 +2,10 @@
 
 namespace EduLazaro\Larakeep\Concerns;
 
+use ReflectionClass;
+
+use EduLazaro\Larakeep\Attributes\KeptBy;
+
 trait HasKeepers
 {
     /** @var array Store the assignments of keepers to classes */
@@ -11,6 +15,23 @@ trait HasKeepers
     /** @var array Keepers */
     private $keepers = [];
 
+    /**
+     * Automatically discover keepers from attributes
+     */
+    public static function bootKeepers(): void
+    {
+        $reflection = new ReflectionClass(static::class);
+        $attributes = $reflection->getAttributes(KeptBy::class);
+    
+        foreach ($attributes as $attribute) {
+            $instance = $attribute->newInstance();
+
+            if (!in_array($instance->keeperClass, self::$keeperClasses)) {
+                self::keep($instance->keeperClass);
+            }
+        }
+    }
+    
     /**
      * Assign a Keper to a model
      * 
@@ -28,7 +49,7 @@ trait HasKeepers
      * @param array $fields
      * @return $this
      */
-    public function maintain($fields)
+    public function process($fields)
     {
         return $this->processMaintenanceTask('get', $fields);
     }
@@ -40,7 +61,7 @@ trait HasKeepers
      * @param array $fields
      * @return $this
      */
-    public function maintainTask($task, $fields)
+    public function processTask($task, $fields)
     {
         return $this->processMaintenanceTask($task, $fields);
     }
@@ -52,7 +73,7 @@ trait HasKeepers
      * @param array $params
      * @return $this
      */
-    public function maintainWith($fields, $params)
+    public function processWith($fields, $params)
     {
         return $this->processMaintenanceTask('get', $fields, $params);
     }
@@ -65,7 +86,7 @@ trait HasKeepers
      * @param array $params
      * @return $this
      */
-    public function maintainTaskWith($task, $fields, $params)
+    public function processTaskWith($task, $fields, $params)
     {
         return $this->processMaintenanceTask($task, $fields, $params);
     }
@@ -96,8 +117,12 @@ trait HasKeepers
 
                 if (empty($this->keepers[$keeperClass])) $this->keepers[$keeperClass] = new $keeperClass($this);
 
-                if ($params == null) $fieldValue = $this->keepers[$keeperClass]->$methodName();
-                else $fieldValue = call_user_func_array([$this->keepers[$keeperClass], $methodName], $params);
+                if ($params == null) {
+                    $fieldValue = $this->keepers[$keeperClass]->$methodName();
+                } else {
+                    $fieldValue = call_user_func_array([$this->keepers[$keeperClass], $methodName], $params);
+                }
+
                 $this->$field = $fieldValue;
             }
         }

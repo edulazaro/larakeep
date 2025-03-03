@@ -3,12 +3,17 @@
     "description": "Maintenance Tasks for Laravel Models Fields",
     "type": "library",
     "require": {
-        "php": "^8.1",
-        "laravel/framework": "^9"
+        "php": "^8.2",
+        "laravel/framework": "^10"
     },
     "autoload": {
         "psr-4": {
             "EduLazaro\\Larakeep\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EduLazaro\\Larakeep\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -23,5 +28,8 @@
                 "EduLazaro\\Larakeep\\LarakeepServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
     }
 }
