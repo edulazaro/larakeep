@@ -6,7 +6,6 @@ use EduLazaro\Larakeep\Tests\TestCase;
 use EduLazaro\Larakeep\Tests\Support\Models\MyTestModel;
 use EduLazaro\Larakeep\Tests\Support\Keepers\TestKeeper;
 use EduLazaro\Larakeep\Tests\Support\Models\MyAttributeTestModel;
-use EduLazaro\Larakeep\Tests\Support\Keepers\TestAttributeKeeper;
 
 class KeeperTest extends TestCase
 {
