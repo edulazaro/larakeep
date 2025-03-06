@@ -216,6 +216,12 @@ class MyClassKeeper
 }
 ```
 
+However to process these fields with these methods you will need to use the `processTask` method:
+
+```php
+$myClassInstance->processTaskWith('configure','search_text');
+```
+
 In the same way, these methods can also accept parameters:
 
 
@@ -234,16 +240,10 @@ class MyClassKeeper
 }
 ```
 
-However to process these fields with these methods you will need to use the `processTask` method, with the name you prepended:
+The you would do:
 
 ```php
-$myClassInstance->processTask('configure','search_text');
-```
-
-Or if the method has parameters:
-
-```php
-$myClassInstance->processTaskWith('configure', 'search_text', 'Any string');
+$myClassInstance->processTaskWith('configure','search_text', 'Any string');
 ```
 
 You can also pass an array of fields to process all of them at the same time:
@@ -252,7 +252,13 @@ You can also pass an array of fields to process all of them at the same time:
 $myClassInstance->processTask('configure', ['search_text', 'word_count']);
 ```
 
-***The model will still need to be saved.***
+## Saving data
+
+The attributes will not be saved to the database. In order to do that, call the `save` method as usually:
+
+```php
+$myClassInstance->process('configure')->save();
+```
 
 ## License
 
