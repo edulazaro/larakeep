@@ -49,7 +49,7 @@ The Keeper will be created by default for the model `\App\Models\MyModel`.
 You can also specify the model you are creating the Keeper for by using a second argument:
 
 ```bash
-php artisan make:keeper MyClassKeeper  \App\Models\Whatever\MyModel
+php artisan make:keeper MyClassKeeper  "\App\Models\Whatever\MyModel"
 ```
 
 In this case, the keeper will be created for the model `\App\Models\Whatever\MyModel`.

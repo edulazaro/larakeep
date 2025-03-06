@@ -66,7 +66,11 @@ class MakeKeeperCommand extends GeneratorCommand
         if ($this->argument('model')) {
 
             $modelClass = $this->argument('model');
-            if (!str_contains($modelClass, '\\')) $modelClass = '\\App\Models\\' . $modelClass;
+            $modelClass = trim($this->argument('model'), '\\');
+
+            if (!str_contains($modelClass, '\\')) {
+                $modelClass = '\\App\Models\\' . $modelClass;
+            }
 
             $modelClassSegments = explode('\\', $modelClass);
             $usedModelClass = end($modelClassSegments);
