@@ -1,6 +1,7 @@
 {
     "name": "edulazaro/larakeep",
     "description": "Maintenance Tasks for Laravel Models Fields",
+    "license": "MIT",
     "type": "library",
     "require": {
         "php": "^8.2",
