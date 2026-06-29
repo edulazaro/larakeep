@@ -1,8 +1,10 @@
+![Larakeep](art/banner.png)
+
 # Keepers for Laravel
 
 <p align="center">
-    <a href="https://packagist.org/packages/laravel/folio"><img src="https://img.shields.io/packagist/dt/edulazaro/larakeep" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/laravel/folio"><img src="https://img.shields.io/packagist/v/edulazaro/larakeep" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/edulazaro/larakeep"><img src="https://img.shields.io/packagist/dt/edulazaro/larakeep" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/edulazaro/larakeep"><img src="https://img.shields.io/packagist/v/edulazaro/larakeep" alt="Latest Stable Version"></a>
 </p>
 
 
@@ -259,6 +261,19 @@ The attributes will not be saved to the database. In order to do that, call the 
 ```php
 $myClassInstance->process('configure')->save();
 ```
+
+## Sponsors
+
+Larakeep is supported by the following sponsors. Thank you for keeping it growing:
+
+<p>
+  <a href="https://kenodo.com"><img src="art/logo-kenodo.png" width="24" alt="Kenodo"></a>&nbsp;<a href="https://kenodo.com">Kenodo</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://andorradev.com"><img src="art/logo-andorradev.png" width="24" alt="AndorraDev"></a>&nbsp;<a href="https://andorradev.com">AndorraDev</a>
+</p>
+
+## Author
+
+Created by [Edu Lazaro](https://edulazaro.com)
 
 ## License
 
